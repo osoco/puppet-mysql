@@ -1,6 +1,16 @@
 class mysql::install ($version = "latest", $root_pwd = "my5q1") {
 
-    $package_name = "mysql-server"
+    case $operatingsystem {
+      debian,ubuntu: {
+	$package_name = "mysql-server"
+      }
+      Gentoo: {
+        $package_name = "dev-db/mysql"
+      }
+      default: {
+        fail("${operatingsystem} is not supported by this module.")
+      }
+    }
 
     package { "$package_name":
         ensure => "$version"
