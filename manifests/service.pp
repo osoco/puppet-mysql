@@ -9,6 +9,6 @@ class mysql::service {
         hasstatus => true,
         hasrestart => true,
         enable => true,
-	require => Package["$mysql::install::package_name"]
+	require => Class["mysql::install"]
     }
 }
