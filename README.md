@@ -1,7 +1,7 @@
-puppet-git
-==========
+puppet-mysql
+============
 
-Puppet module to manage Git workspaces. Usually, mysql modules are complex and with lots of depencies. 
+Puppet module to manage MySQL databases. Usually, mysql modules are complex and with lots of depencies. 
 This module aims exactly the opposite. Yet less powerful, is small and simple to use. It can:
 
 * Install mysql server with a parametrized root password
