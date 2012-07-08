@@ -6,7 +6,7 @@ define mysql::user($user, $password, $database, $host = 'localhost', $privileges
 
     exec { "grant-$user-to-database-$database":
         command => "echo \"$grant_sql\" | mysql -u root -p$mysql::install::root_pwd",
-	require => Mysql::Database["$database"]
+	    require => Mysql::Database["$database"]
     }
     
 }

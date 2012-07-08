@@ -1,5 +1,6 @@
 class mysql {
 
-    include mysql::service
+  include mysql::install
+  include mysql::service
 
 }

@@ -13,7 +13,7 @@ class mysql::install::gentoo {
   exec { "set-root-password" :
     command => "mysqladmin -u root password '${mysql::install::root_pwd}'",
     refreshonly => true,
-    require => Package["dev-db/mysql"]
+    require => Exec["install-db"]
   }
 
 }

@@ -1,7 +1,7 @@
 class mysql::install ($version = "latest", $root_pwd = "my5q1") {
 
   case $operatingsystem {
-    debian,ubuntu: {
+    Debian,ubuntu: {
       include mysql::install::debian
     }
     Gentoo: {
