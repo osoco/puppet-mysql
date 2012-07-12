@@ -13,14 +13,12 @@ class mysql::install::gentoo {
   
   exec { "install-db" :
     command => "mysql_install_db",
-    refreshonly => true,
     require => File["/etc/mysql/my.cnf"]
   }
 
   exec { "set-root-password" :
     command => "mysqladmin -u root password '${mysql::install::root_pwd}'",
-    refreshonly => true,
-    require => Exec["install-db"]
+    unless => "echo select 0 | mysql -u root -p${mysql::install::root_pwd}"   
   }
 
 }
