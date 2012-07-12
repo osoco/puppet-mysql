@@ -1,4 +1,7 @@
-class mysql::install ($version = "latest", $root_pwd = "my5q1") {
+class mysql::install (
+    $version = "latest",
+    $root_pwd = "my5q1",
+    $data_dir = undef) {
 
   case $operatingsystem {
     Debian,ubuntu: {

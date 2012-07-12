@@ -4,10 +4,17 @@ class mysql::install::gentoo {
     ensure => "${mysql::install::version}"
   }
 
+  file { "/etc/mysql/my.cnf" :
+    owner => root,
+    mode => 0644,
+    content => template("mysql/my.cnf.erb"),
+    require => Package["dev-db/mysql"]
+  }      
+  
   exec { "install-db" :
     command => "mysql_install_db",
     refreshonly => true,
-    require => Package["dev-db/mysql"]
+    require => File["/etc/mysql/my.cnf"]
   }
 
   exec { "set-root-password" :

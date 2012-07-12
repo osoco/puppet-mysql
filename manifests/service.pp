@@ -9,6 +9,6 @@ class mysql::service {
         hasstatus => true,
         hasrestart => true,
         enable => true,
-        require => Exec["set-root-password"]
+        require => Exec["install-db"]
     }
 }
