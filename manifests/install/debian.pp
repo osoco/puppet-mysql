@@ -15,4 +15,8 @@ class mysql::install::debian {
     require => Package["$package_name"]
   }
 
+  exec { "install-db" :
+    command => "echo 'Non needed step in debian, but the resource is needed as is a dependency'"
+  }
+
 }
