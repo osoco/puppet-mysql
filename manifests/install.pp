@@ -1,7 +1,7 @@
 class mysql::install (
     $version = "latest",
     $root_pwd = "my5q1",
-    $data_dir = undef) {
+    $data_dir = "/var/lib/mysql") {
 
   case $operatingsystem {
     Debian,ubuntu: {
